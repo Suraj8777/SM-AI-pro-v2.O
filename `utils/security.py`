@@ -1,0 +1,17 @@
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+import re
+
+class SecurityManager:
+    def __init__(self, app):
+        self.limiter = Limiter(
+            app=app,
+            key_func=get_remote_address,
+            default_limits=["100 per day", "10 per minute"]
+        )
+    
+    def sanitize_input(self, text):
+        return re.sub(r'[^a-zA-Z0-9\s.,?!/]', '', text)[:500]
+
+    def rotate_keys(self, keys):
+        return keys[-1:] + keys[:-1]
