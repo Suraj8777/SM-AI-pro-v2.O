@@ -1,0 +1,18 @@
+class ModelSelector:
+    def __init__(self):
+        self.models = {
+            'gpt-4': OpenAIHandler(),
+            'claude-2': AnthropicHandler(),
+            'gemini': GoogleHandler(),
+            'local': OllamaHandler()
+        }
+
+    def select_model(self, query):
+        if "real-time" in query:
+            return self.models['gemini']
+        elif "creative" in query:
+            return self.models['gpt-4']
+        elif "technical" in query:
+            return self.models['claude-2']
+        else:
+            return self.models['local']
