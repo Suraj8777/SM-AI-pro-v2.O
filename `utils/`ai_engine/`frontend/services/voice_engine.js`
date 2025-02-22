@@ -1,0 +1,18 @@
+class Dashboard {
+    constructor() {
+        this.initPerformanceMonitor();
+        this.initThemeSwitcher();
+        this.initCommandHistory();
+    }
+
+    initPerformanceMonitor() {
+        setInterval(() => {
+            const stats = {
+                cpu: navigator.hardwareConcurrency,
+                memory: performance.memory,
+                responseTime: Date.now() - performance.timing.responseStart
+            };
+            this.updateSystemStats(stats);
+        }, 5000);
+    }
+}
