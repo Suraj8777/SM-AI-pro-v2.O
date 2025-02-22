@@ -1,0 +1,50 @@
+body {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.jarvis-interface {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 20px;
+    width: 600px;
+    border: 2px solid #00f7ff;
+}
+
+.response-box {
+    height: 300px;
+    background: #000;
+    color: #00f7ff;
+    padding: 15px;
+    margin: 15px 0;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+}
+
+.mic-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ff0000;
+    border: none;
+    cursor: pointer;
+}
+
+.loading {
+    display: none;
+    width: 30px;
+    height: 30px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #00f7ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
